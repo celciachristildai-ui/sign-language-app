@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Language Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Falling petals -->
+  <div class="petals"></div>
+  <div class="petals"></div>
+  <div class="petals"></div>
+
+  <!-- Floating hearts -->
+  <div class="hearts"></div>
+  <div class="hearts"></div>
+  <div class="hearts"></div>
+
+  <div class="container">
+    <h1>💗 Sign Language Detector</h1>
+
+    <button id="startBtn" class="cute-btn">Start Camera 🎀</button>
+
+    <div class="video-card">
+      <video id="webcam" autoplay></video>
+    </div>
+
+    <div class="prediction-box">
+      <h2>Prediction:</h2>
+      <p id="output">Waiting...</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+  <script>
+    // Start camera on button click
+    document.getElementById("startBtn").onclick = async () => {
+      const webcam = document.getElementById("webcam");
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      webcam.srcObject = stream;
+    };
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
