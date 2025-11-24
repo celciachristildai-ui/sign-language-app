@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sign Language Detector</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magical Sign Language AI 💗✨</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- IMPORTANT: TensorFlow must load BEFORE Teachable Machine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+
+  <!-- FIXED + WORKING Teachable Machine Image Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 </head>
 
 <body>
 
-  <!-- Falling petals -->
-  <div class="petals"></div>
-  <div class="petals"></div>
-  <div class="petals"></div>
+  <div class="hearts-bg"></div>
 
-  <!-- Floating hearts -->
-  <div class="hearts"></div>
-  <div class="hearts"></div>
-  <div class="hearts"></div>
+  <div class="app-container">
+    <h1 class="title">💗 Magical Sign Language AI 💗</h1>
 
-  <div class="container">
-    <h1>💗 Sign Language Detector</h1>
-
-    <button id="startBtn" class="cute-btn">Start Camera 🎀</button>
-
-    <div class="video-card">
-      <video id="webcam" autoplay></video>
+    <div class="mode-box">
+      <label>Choose Mode:</label>
+      <select id="modeSelect">
+        <option value="letters">Letters (A–Z)</option>
+        <option value="words">Words (Hello, Yes…)</option>
+      </select>
     </div>
 
-    <div class="prediction-box">
-      <h2>Prediction:</h2>
-      <p id="output">Waiting...</p>
+    <div class="video-box">
+      <video id="webcam" autoplay playsinline></video>
     </div>
+
+    <h2 class="prediction">
+      Prediction: <span id="output">Loading...</span>
+    </h2>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-
-  <script>
-    // Start camera on button click
-    document.getElementById("startBtn").onclick = async () => {
-      const webcam = document.getElementById("webcam");
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      webcam.srcObject = stream;
-    };
-  </script>
-
+  <!-- Your JavaScript file -->
   <script src="script.js"></script>
+
 </body>
 </html>
