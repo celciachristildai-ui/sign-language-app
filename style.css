@@ -1,130 +1,152 @@
-/* Pink Aesthetic Background */
-body {
+/* RESET */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #ffd6e8, #ffc3e2, #ffe8f3);
-  background-size: 400% 400%;
-  animation: bgMove 12s ease infinite;
-  overflow-x: hidden;
-  text-align: center;
 }
 
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body {
+  background: linear-gradient(135deg, #ffb6e9, #ff94d6, #ffb6e9);
+  height: 100vh;
+  overflow: hidden;
+  color: white;
 }
 
-/* Petals falling */
-.petals {
-  position: fixed;
-  top: -10px;
-  width: 20px;
-  height: 20px;
-  background-image: url('https://emoji.slack-edge.com/T024F2L2D/pink_flower/6dc89c89b4d27d4a.png');
-  background-size: cover;
-  animation: fall 8s linear infinite;
+/* FLOATING HEARTS BACKGROUND */
+.hearts-bg::before,
+.hearts-bg::after {
+  content: "💖";
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  font-size: 32px;
   opacity: 0.8;
-}
-.petals:nth-child(1) { left: 20%; animation-delay: 0s; }
-.petals:nth-child(2) { left: 50%; animation-delay: 2s; }
-.petals:nth-child(3) { left: 80%; animation-delay: 4s; }
-
-@keyframes fall {
-  0% { transform: translateY(-20px) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
+  animation: floatUp 6s linear infinite;
 }
 
-/* Floating hearts */
-.hearts {
-  position: fixed;
-  bottom: -20px;
-  width: 25px;
-  height: 25px;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
-  background-size: cover;
-  animation: floatUp 6s ease-in infinite;
-  opacity: 0.7;
+.hearts-bg::after {
+  left: 20%;
+  animation-delay: 2s;
 }
-.hearts:nth-child(4) { left: 10%; animation-delay: 0s; }
-.hearts:nth-child(5) { left: 40%; animation-delay: 2s; }
-.hearts:nth-child(6) { left: 70%; animation-delay: 4s; }
 
 @keyframes floatUp {
-  0% { transform: translateY(0) scale(0.7); opacity: 0.7; }
-  100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-1200px) scale(1.6); opacity: 0; }
 }
 
-/* Main container */
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+/* APP CONTAINER */
+.app-container {
+  text-align: center;
+  margin-top: 30px;
 }
 
-/* Title */
-h1 {
-  font-size: 2.6rem;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #d63382;
+/* TITLE */
+.title {
+  font-size: 2.4rem;
+  text-shadow: 0 0 12px #ff71d4, 0 0 22px #ff9be9;
+  margin-bottom: 20px;
 }
 
-/* Cute button */
-.cute-btn {
-  background: #ff8ac9;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3);
-}
-.cute-btn:hover {
-  transform: scale(1.07);
-  box-shadow: 0 8px 20px rgba(255, 0, 128, 0.4);
-}
-
-/* Video card */
-.video-card {
-  background: #ffffffcc;
-  padding: 20px;
-  border-radius: 25px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 25px rgba(255, 0, 160, 0.2);
-  margin-top: 20px;
-}
-
-/* Webcam video — average size */
-video {
-  width: 85%;
-  max-width: 500px;   /* ⭐ AVERAGE webcam size */
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(255, 0, 128, 0.3);
-}
-
-/* Prediction box */
-.prediction-box {
-  background: #ffffffcc;
-  padding: 20px;
-  border-radius: 20px;
+/* MODE BOX */
+.mode-box {
+  margin-bottom: 20px;
   display: inline-block;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 20px rgba(255, 0, 128, 0.2);
-  margin-top: 20px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px #ff7cd5;
 }
 
-/* Prediction text */
-.prediction-box h2 {
-  margin: 0;
-  font-weight: 600;
-  color: #ff4da6;
+select {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  color: #d2008f;
+  font-weight: bold;
 }
+
+/* VIDEO BOX */
+.video-box {
+  margin: auto;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px #ff5bbd, 0 0 40px #ffa6df;
+}
+
+#webcam {
+  width: 100%;
+  border-radius: 15px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  transform: scaleX(-1); /* MIRROR MODE */
+}
+
+/* PREDICTION */
+.prediction {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  text-shadow: 0 0 8px white;
+}
+
 #output {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #ff2f92;
+  padding: 5px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.25);
+  text-shadow: 0 0 10px #ffbef1;
+  font-weight: bold;
 }
+
+/* LOADING SCREEN */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 200, 240, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-circle {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #ff9adf;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1.3s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  text-shadow: 0 0 12px #ff7cd5;
+}
+
+.loading-hearts {
+  margin-top: 10px;
+  font-size: 1.8rem;
+  animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
